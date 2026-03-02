@@ -20,16 +20,17 @@ public class UIManager : MonoBehaviour
         }
     }
     #endregion
+
     private Dictionary<string, UIPanel> activePanels = new Dictionary<string, UIPanel>();
-    [SerializeField]private Transform uiRoot;
+    [SerializeField] private Transform uiRoot;
 
-    public void Init()
+    public async void Init()
     {
-
+        await OpenPanelAsync<MainPanel>("MainPanel");
     }
 
     /// <summary>
-    /// 打开面板
+    /// 打开面板（异步）
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="panelName">面板名，与AA地址相同</param>
@@ -38,18 +39,23 @@ public class UIManager : MonoBehaviour
     {
         if (activePanels.ContainsKey(panelName))
         {
-            activePanels[panelName].gameObject.SetActive(true);
-            activePanels[panelName].OnOpen();
+            if (!activePanels[panelName].gameObject.activeSelf)
+            {
+                activePanels[panelName].gameObject.SetActive(true);
+                activePanels[panelName].OnOpen();
+            }
+            Debug.Log(panelName +" 11");
             return activePanels[panelName] as T;
         }
 
-        GameObject go = Instantiate(await ResourceManager.Instance.LoadResourceAsync<GameObject>(panelName, "UI"), uiRoot);
+        GameObject go = Instantiate(await ResourceManager.Instance.LoadResourceAsync<GameObject>(panelName, "UIPanel"), uiRoot);
 
         T panel = go.GetComponent<T>();
         if (panel == null)
             panel = go.AddComponent<T>();
         activePanels.Add(panelName, panel);
         panel.OnOpen();
+        Debug.Log(panelName + " 22");
         return panel;
     }
 

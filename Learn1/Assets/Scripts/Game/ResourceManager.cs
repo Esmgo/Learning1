@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -26,7 +27,9 @@ public class ResourceManager : MonoBehaviour
 
     public async void Init()
     {
-        await LoadResourcesByLabelAsync<GameObject>("UI");
+        await LoadResourcesByLabelAsync<GameObject>("UIPanel");
+        await LoadResourcesByLabelAsync<CharacterConfiguration>("CharacterConfiguration");
+        await LoadResourcesByLabelAsync<ItemConfiguration>("ItemConfiguration");
     }
 
     public async Task<T> LoadResourceAsync<T>(string address, string label = "default") where T: Object
@@ -49,7 +52,7 @@ public class ResourceManager : MonoBehaviour
         }
         else
         {
-            Debug.LogError($"加载资源失败: {label}/{address}");
+            Debug.LogWarning($"加载资源失败: {label}/{address}");
             return null;
         }
     }
@@ -158,5 +161,39 @@ public class ResourceManager : MonoBehaviour
     public bool IsResourceLoaded(string label, string resourcePath)
     {
         return resources.ContainsKey(label) && resources[label].ContainsKey(resourcePath);
+    }
+
+
+    /// <summary>
+    /// 打印当前所有已加载资源的状态
+    /// </summary>
+    public void PrintLoadedResourcesStatus()
+    {
+        StringBuilder sb = new StringBuilder();
+        sb.AppendLine("--- ResourceManager Status ---");
+
+        if (resources.Count == 0)
+        {
+            sb.AppendLine("No resources loaded yet.");
+        }
+        else
+        {
+            foreach (var labelEntry in resources)
+            {
+                string label = labelEntry.Key;
+                var innerDict = labelEntry.Value;
+                sb.AppendLine($"[Label: '{label}'] ({innerDict.Count} assets loaded)");
+
+                foreach (var resourceEntry in innerDict)
+                {
+                    string address = resourceEntry.Key;
+                    Object resource = resourceEntry.Value;
+                    sb.AppendLine($"  - Address: {address} | Type: {resource.GetType().Name}");
+                }
+            }
+        }
+
+        sb.AppendLine("------------------------------");
+        Debug.Log(sb.ToString());
     }
 }

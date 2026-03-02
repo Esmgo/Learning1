@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public abstract class UIPanel : MonoBehaviour
+public class UIPanel : MonoBehaviour
 {
-    public void OnOpen() { }
-    public void OnClose() { }
+    public virtual void OnOpen() { }
+    public virtual void OnClose() { }
 
     
 
