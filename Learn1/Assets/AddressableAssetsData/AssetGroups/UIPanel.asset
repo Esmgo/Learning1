@@ -35,6 +35,17 @@ MonoBehaviour:
     m_SerializedLabels:
     - UIPanel
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a9525a72afe57bf4584d0164fe9a0c72
+    m_Address: BackupUIPanel
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UIPanel
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b58119d9fa895df449ce6eb894bffb05
+    m_Address: MapUIPanel
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bc456576affaf174ca882170b566854e
     m_Address: MainPanel
     m_ReadOnly: 0

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -10,14 +11,43 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 /// </summary>
 public static class Tool
 {
+    const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
     public static int seed { private set; get; }
     /// <summary>
     /// 工具类初始化
     /// </summary>
     public static void Init()
     {
-        seed = GenerateRandomSeed();
-        Random.InitState(seed);
+        //seed = GenerateRandomSeed();
+        //Random.InitState(seed);
+    }
+
+    /// <summary>
+    /// 生成游戏种子（字母数字组合）
+    /// </summary>
+    /// <param name="length">种子长度</param>
+    /// <returns>游戏种子</returns>
+    public static string GenerateGameSeed(int length)
+    {
+        var random = new System.Random();
+        return new string(Enumerable.Repeat(chars, length)
+            .Select(s => s[random.Next(s.Length)]).ToArray());
+    }
+
+    /// <summary>
+    /// 通过游戏种子生成地图种子
+    /// </summary>
+    /// <param name="gameSeed">游戏种子</param>
+    /// <param name="length">地图种子长度</param>
+    /// <returns>地图种子</returns>
+    public static string GenerateMapSeed(string gameSeed, int length)
+    {
+        // 使用游戏种子生成一个哈希值
+        int hash = gameSeed.GetHashCode();
+        var random = new System.Random(hash);
+        return new string(Enumerable.Repeat(chars, length)
+            .Select(s => s[random.Next(s.Length)]).ToArray());
     }
 
     /// <summary>

@@ -15,7 +15,7 @@ MonoBehaviour:
   m_DefaultGroup: 8f8e44b0f4bf2454eb0001a591eca4b2
   m_currentHash:
     serializedVersion: 2
-    Hash: 00000000000000000000000000000000
+    Hash: 2ae94be7d0f106c7ed08f7090432ec01
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 0
   m_BundleLocalCatalog: 0
@@ -45,6 +45,7 @@ MonoBehaviour:
   m_overridePlayerVersion: '[UnityEditor.PlayerSettings.bundleVersion]'
   m_GroupAssets:
   - {fileID: 11400000, guid: 63f15eba532f54144a7f68bc965bb0bc, type: 2}
+  - {fileID: 11400000, guid: f03f8f5f650726b43b3f83b2962ea6b3, type: 2}
   - {fileID: 11400000, guid: 11ef92dd4d89d7440aaa2ce930f5eaf4, type: 2}
   - {fileID: 11400000, guid: df9c3b4234ad9734489f543fd8ba1189, type: 2}
   - {fileID: 11400000, guid: 58850e31d59a7e7489852b7d62536353, type: 2}
@@ -96,7 +97,8 @@ MonoBehaviour:
     - UIPanel
     - CharacterConfiguration
     - CharacterPrefab
-    - ItemConfiguration
+    - RelicConfiguration
+    - RelicPrefab
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: 381f8c9e48b0cd44892770f26a7735a6, type: 2}

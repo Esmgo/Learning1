@@ -7,12 +7,12 @@ public class ShopUIPanel : UIPanel
 {
     private bool isInited = false;
 
-    private List<ItemConfiguration> items = new();
+    private List<RelicConfiguration> items = new();
     [SerializeField] private List<ItemForSale> itemForSales = new();
 
     public override async void OnOpen()
     {
-        items = await ResourceManager.Instance.LoadResourcesByLabelAsync<ItemConfiguration>("ItemConfiguration");
+        items = await ResourceManager.Instance.LoadResourcesByLabelAsync<RelicConfiguration>("RelicConfiguration");
         foreach (var item in itemForSales)
         {
             item.Init(items[Tool.RandomInt(0, items.Count)]);

@@ -44,7 +44,6 @@ public class UIManager : MonoBehaviour
                 activePanels[panelName].gameObject.SetActive(true);
                 activePanels[panelName].OnOpen();
             }
-            Debug.Log(panelName +" 11");
             return activePanels[panelName] as T;
         }
 
@@ -55,7 +54,6 @@ public class UIManager : MonoBehaviour
             panel = go.AddComponent<T>();
         activePanels.Add(panelName, panel);
         panel.OnOpen();
-        Debug.Log(panelName + " 22");
         return panel;
     }
 

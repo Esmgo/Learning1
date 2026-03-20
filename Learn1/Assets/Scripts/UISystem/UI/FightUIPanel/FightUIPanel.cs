@@ -33,7 +33,6 @@ public class FightUIPanel : UIPanel
             isInited = true;
         }
         SubscribeEvents();
-        Debug.Log("¶©ÔÄ");
         //healthComponent.OnHealthChange += UpadateInfo;
         //energyComponent.OnEnergyChange += UpadateInfo;
         UpadateInfo();
@@ -52,9 +51,6 @@ public class FightUIPanel : UIPanel
     public override void OnClose()
     {
         UnsubscribeEvents();
-        Debug.Log("È¡Ïû¶©ÔÄ");
-        //healthComponent.OnHealthChange -= UpadateInfo;
-        //energyComponent.OnEnergyChange -= UpadateInfo;
     }
 
     private void SubscribeEvents()

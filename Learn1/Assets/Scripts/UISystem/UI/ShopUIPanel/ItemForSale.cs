@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class ItemForSale : MonoBehaviour
 {
-    private ItemConfiguration config;
+    private RelicConfiguration config;
     private bool isInited = false;
 
     [SerializeField] private Image itemIcon;
@@ -14,12 +14,12 @@ public class ItemForSale : MonoBehaviour
     [SerializeField] private TextMeshProUGUI itemDescriptionText;
     [SerializeField] private TextMeshProUGUI itemPriceText;
     [SerializeField] private UIButton buyButton;
-    public void Init(ItemConfiguration config)
+    public void Init(RelicConfiguration config)
     {
         gameObject.SetActive(true);
         this.config = config;
         itemIcon.sprite = config.icon;
-        itemNameText.text = config.itemName;
+        itemNameText.text = config.relicName;
         itemDescriptionText.text = config.description;
         itemPriceText.text = config.price.ToString();
 
@@ -34,7 +34,7 @@ public class ItemForSale : MonoBehaviour
 
     private void Buy()
     {
-        ItemManager.Instance.GetItem(CharacterManager.Instance.currentCharacter, config);
+        RelicManager.Instance.GetItem(CharacterManager.Instance.currentCharacter, config);
         gameObject.SetActive(false);
     }
 }

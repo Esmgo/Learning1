@@ -29,7 +29,7 @@ public class ResourceManager : MonoBehaviour
     {
         await LoadResourcesByLabelAsync<GameObject>("UIPanel");
         await LoadResourcesByLabelAsync<CharacterConfiguration>("CharacterConfiguration");
-        await LoadResourcesByLabelAsync<ItemConfiguration>("ItemConfiguration");
+        await LoadResourcesByLabelAsync<RelicConfiguration>("RelicConfiguration");
     }
 
     public async Task<T> LoadResourceAsync<T>(string address, string label = "default") where T: Object
