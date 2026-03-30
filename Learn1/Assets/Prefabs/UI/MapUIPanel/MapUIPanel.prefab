@@ -164,7 +164,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b02a785593466346b2bfc653cffcb23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floorNumber: 15
   groudFloorPosY: -1300
   paddingX: 100
   nodeNumberX: 7
@@ -173,6 +172,8 @@ MonoBehaviour:
   nodeContent: {fileID: 3774942731043879697}
   linePrefab: {fileID: 7737478604615876002, guid: 3a296deff0ac63d45a38996f2ecde4dd, type: 3}
   regenerate: {fileID: 359594285869461115}
+  minTotalEliteFights: 6
+  minTotalRestNodes: 6
 --- !u!1 &2734376437290653344
 GameObject:
   m_ObjectHideFlags: 0

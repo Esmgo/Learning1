@@ -51,6 +51,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 5687937455286966023}
+  icon: {fileID: 3301150965081491700}
+  eventIcon: {fileID: 21300000, guid: b045e6e2dfb78384b885bc22068ed476, type: 3}
+  shopIcon: {fileID: 21300000, guid: a37cb73bfd40c9b47a743fd44d4dcf3a, type: 3}
+  fightIcon: {fileID: 21300000, guid: 4170dca8c6a0fd645838f725f18cc5cb, type: 3}
+  restIcon: {fileID: 21300000, guid: f58c84be8433ebd4a9bf8ed428d80f5b, type: 3}
+  treasureIcon: {fileID: 21300000, guid: fb3b1c8e493710241bb675df355ee00e, type: 3}
 --- !u!1 &8453927411387846505
 GameObject:
   m_ObjectHideFlags: 0
@@ -68,7 +74,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5974736850632450048
 RectTransform:
   m_ObjectHideFlags: 0

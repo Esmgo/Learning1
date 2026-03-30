@@ -47,8 +47,8 @@ public class SelectCharacterPanel : UIPanel
         RegisterButton("StartBtn", async () =>
         {
             CharacterManager.Instance.SetSelectedCharacterConfig(selectedConfig);
-            GameManager.Instance.StartGame();
-            //await UIManager.Instance.OpenPanelAsync<MapUIPanel>("MapUIPanel");
+            //GameManager.Instance.StartGame();
+            await UIManager.Instance.OpenPanelAsync<MapUIPanel>("MapUIPanel");
             UIManager.Instance.ClosePanel("SelectCharacterPanel");
         });
     }

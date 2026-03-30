@@ -25,6 +25,8 @@ public class DataManager : MonoBehaviour
         }
     }
 
+    public PlayerData playerData { private set; get; }
+
     public void StartGame()
     {
 
